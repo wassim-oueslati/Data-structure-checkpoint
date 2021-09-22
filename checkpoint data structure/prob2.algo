@@ -1,0 +1,41 @@
+ALGORITHM problem2
+VAR
+    htab1 : hashtable <integer, integer>
+    htab2 : hashtable <integer, integer>
+    i,j :integer;
+    c:char;
+    sum:integer:=0;
+
+BEGIN
+   
+    write('htab1');
+    read(c);
+
+    WHILE (c isInteger) DO
+        htab1.insert((integer)c, i);
+        write('Enter an integer of htab1');
+        read(c);
+    END_WHILE
+
+    write('htab2');
+    read(c);
+    
+    WHILE (c isInteger) DO
+        htab2.insert((integer)c, i);
+        write('Enter an integer of htab2');
+        read(c);
+    END_WHILE
+
+    i:=0;
+    WHILE (htab1.lookup(i)) DO
+        j:=0;
+        WHILE (htab2.lookup(j)) DO
+            IF (htab1.get(i)=htab2.get(j)) THEN
+                sum:=sum + 2 * htab1.get(i)
+            END_IF
+        END_WHILE
+    END_WHILE
+
+    write(sum);
+    
+END

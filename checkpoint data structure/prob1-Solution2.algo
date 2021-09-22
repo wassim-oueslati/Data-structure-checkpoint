@@ -1,0 +1,43 @@
+ALGORITHM solution-2
+VAR
+    htab : hashtable <integer, integer>
+    count : integer;
+    tab1 : table of integer(10);
+    tab2 : table of integer(10);
+    i : integer;
+    c:char;
+
+BEGIN
+
+FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+    IF (htab.lookup(tab1[i])) THEN
+        htab.get(tab1[i]):=htab.get(tab1[i])+1
+    ELSE
+        htab.insert(tab1[i]),1)
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+    IF (htab.lookup(tab2[i])) THEN
+        htab.get(tab2[i]):=htab.get(tab2[i])+1
+    ELSE
+        htab.insert(tab2[i]),1)
+    END_IF
+END_FOR
+
+sum:=0;
+FOR i FROM 0 TO tab1.length STEP 1  DO
+    IF (htab.get(tab1[i])=1) THEN
+        sum:=sum+tab1[i]
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO tab1.length STEP 1  DO
+    IF (htab.get(tab1[i])=1) THEN
+        sum:=sum+tab1[i]
+    END_IF
+END_FOR
+
+write(sum)
+
+END

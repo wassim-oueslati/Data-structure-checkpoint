@@ -1,0 +1,53 @@
+ALGORITHM solution-1
+VAR
+    tab1 : table of integer(10);
+    tab2 : table of integer(10);
+    i, j : integer;
+    c:char;
+
+BEGIN
+    
+    FOR i 0 TO 10 STEP step  DO
+        write('Enter an integer of tab1');
+        read(c);
+        IF (c !isInteger) THEN
+            break;
+        END_IF
+         tab1[i]:=(integer) c;  
+    END_FOR
+    
+    FOR i 0 TO 10 STEP step  DO
+        write('Enter an integer of tab2');
+        read(c);
+        IF (c !isInteger) THEN
+            break;
+        END_IF
+         tab2[i]:=(integer) c;  
+    END_FOR
+
+    sum:=0;
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        FOR j FROM 0 TO tab2.length-1 STEP step  DO
+            IF (tab1[i]==tab2[j]) THEN
+                break;
+            END_IF
+            IF (j==tab2.length) THEN
+                sum:=sum+tab1[i]
+            END_IF
+        END_FOR
+    END_FOR
+
+    FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+        FOR j FROM 0 TO tab1.length-1 STEP step  DO
+            IF (tab2[i]==tab1[j]) THEN
+                break;
+            END_IF
+            IF (j==tab1.length) THEN
+                sum:=sum+tab2[i]
+            END_IF
+        END_FOR
+    END_FOR
+
+    write(sum);
+
+END
